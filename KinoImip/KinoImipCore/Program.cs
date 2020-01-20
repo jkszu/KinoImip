@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using KinoImipCore.Interfaces;
 using System;
 
 namespace KinoImipCore
