@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Autofac;
+using KinoImipCore.Interfaces;
+using System;
 
 namespace KinoImipCore
 {
@@ -6,7 +8,13 @@ namespace KinoImipCore
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var container = ContainerConfig.Configure();
+
+            using (var scope = container.BeginLifetimeScope())
+            {
+                var app = scope.Resolve<IApplication>();
+                app.Run();
+            }
         }
     }
 }
