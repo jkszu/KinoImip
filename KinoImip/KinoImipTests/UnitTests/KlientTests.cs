@@ -11,5 +11,8 @@ namespace KinoImipTests.UnitTests
     [TestFixture]
     public class KlientTests
     {
+        // Arrange
+        // Act
+        // Assert
     }
 }
