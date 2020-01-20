@@ -1,0 +1,2 @@
+# KinoImip
+ Student project
