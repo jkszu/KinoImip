@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace KinoImipCore.Interfaces
+namespace KinoImipCore
 {
     public interface IApplication
     {

@@ -13,6 +13,8 @@ namespace KinoImipCore
         {
             var builder = new ContainerBuilder();
 
+            builder.RegisterType<Application>().As<IApplication>();
+
             builder.RegisterAssemblyTypes(Assembly.Load(nameof(KinoImipLibrary)))
                 .Where(t => t.Namespace.Contains("Interfaces"))
                 .As(t => t.GetInterfaces().FirstOrDefault(i => i.Name == "I" + t.Name));
