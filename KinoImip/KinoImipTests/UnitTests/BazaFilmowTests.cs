@@ -27,6 +27,8 @@ namespace KinoImipTests.UnitTests
             filmyExpected.Add(film1);
             filmyExpected.Add(film2);
 
+            var filmyExpectedAnswer = "The Lighthouse 2019\n1917 2020\n";
+
             baza.DodajFilm(film1);
             baza.DodajFilm(film2);
 
@@ -34,7 +36,7 @@ namespace KinoImipTests.UnitTests
             var answer = baza.ZwrocFilmy();
 
             // Assert
-            Assert.That(answer, Is.EqualTo(filmyExpected), "ZwrocFilmy() failure");
+            Assert.That(answer, Is.EqualTo(filmyExpectedAnswer), "ZwrocFilmy() failure");
         }
     }
 }
