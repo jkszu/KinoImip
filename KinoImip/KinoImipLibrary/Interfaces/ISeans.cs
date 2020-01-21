@@ -4,7 +4,7 @@ using System.Text;
 
 namespace KinoImipLibrary.Interfaces
 {
-    public interface IKino
+    public interface ISeans
     {
     }
 }
