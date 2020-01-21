@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KinoImipLibrary.Model;
+using KinoImipLibrary.Interfaces;
 
 namespace KinoImipTests.UnitTests
 {
@@ -16,11 +18,12 @@ namespace KinoImipTests.UnitTests
         public void ZwrocFilmyTest()
         {
             // Arrange
-            var baza = new BazaFilmow();
+            var baza = BazaFilmow.Instance;
 
             var film1 = new Film("The Lighthouse", 2019);
             var film2 = new Film("1917", 2020);
             var filmyExpected = new List<IFilm>();
+
             filmyExpected.Add(film1);
             filmyExpected.Add(film2);
 
@@ -28,7 +31,7 @@ namespace KinoImipTests.UnitTests
             baza.DodajFilm(film2);
 
             // Act
-            var answer = baza.ZwrocFilmyTest();
+            var answer = baza.ZwrocFilmy();
 
             // Assert
             Assert.That(answer, Is.EqualTo(filmyExpected), "ZwrocFilmy() failure");

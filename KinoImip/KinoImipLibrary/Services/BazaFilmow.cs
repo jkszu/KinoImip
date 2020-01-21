@@ -19,5 +19,24 @@ namespace KinoImipLibrary.Services
         }
 
         public List<IFilm> Filmy;
+
+        public void DodajFilm(IFilm film)
+        {
+            if( !Filmy.Contains(film) )
+            {
+                Filmy.Add(film);
+            }
+        }
+
+        public string ZwrocFilmy()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach(var film in Filmy)
+            {
+                stringBuilder.Append($"{film.Nazwa} {film.Rok} {film.Rezyser} {film.Gatunek}");
+            }
+
+            return stringBuilder.ToString();
+        }
     }
 }

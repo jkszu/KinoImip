@@ -6,6 +6,8 @@ namespace KinoImipLibrary.Interfaces
 {
     public interface ISala
     {
-
+        int Numer { get; set; }
+        List<IMiejsce> Miejsca { get; set; }
+        bool[] Dostepnosc { get; set; }
     }
 }
