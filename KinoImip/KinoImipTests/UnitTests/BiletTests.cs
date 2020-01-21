@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 namespace KinoImipTests.UnitTests
 {
     [TestFixture]
-    public class KlientTests
+    public class BiletTests
     {
         [Test]
-        public void KupBiletTest()
+        public void WybierzMiejsceTest()
         {
             // Arrange
             // Act
@@ -20,7 +20,7 @@ namespace KinoImipTests.UnitTests
         }
 
         [Test]
-        public void RezerwujTest()
+        public void WybierzSeansTest()
         {
             // Arrange
             // Act
@@ -28,15 +28,7 @@ namespace KinoImipTests.UnitTests
         }
 
         [Test]
-        public void AnulujRezerwacjeTest()
-        {
-            // Arrange
-            // Act
-            // Assert
-        }
-
-        [Test]
-        public void PrzegladajSeanseTest()
+        public void ZwrocCeneTest()
         {
             // Arrange
             // Act

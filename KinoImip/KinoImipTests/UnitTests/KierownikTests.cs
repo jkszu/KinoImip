@@ -12,7 +12,47 @@ namespace KinoImipTests.UnitTests
     public class KierownikTests
     {
         [Test]
-        public void KierownikDodajSeansTest()
+        public void DodajSeansTest()
+        {
+            // Arrange
+            // Act
+            // Assert
+        }
+
+        [Test]
+        public void UsunSeansTest()
+        {
+            // Arrange
+            // Act
+            // Assert
+        }
+
+        [Test]
+        public void DodajFilmTest()
+        {
+            // Arrange
+            // Act
+            // Assert
+        }
+
+        [Test]
+        public void UsunFilmTest()
+        {
+            // Arrange
+            // Act
+            // Assert
+        }
+
+        [Test]
+        public void PrzegladajFilmyTest()
+        {
+            // Arrange
+            // Act
+            // Assert
+        }
+
+        [Test]
+        public void PrzegladajSeanseTest()
         {
             // Arrange
             // Act
