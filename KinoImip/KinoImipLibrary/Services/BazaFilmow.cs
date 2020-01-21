@@ -18,7 +18,7 @@ namespace KinoImipLibrary.Services
         {
         }
 
-        public List<IFilm> Filmy;
+        public List<IFilm> Filmy = new List<IFilm>();
 
         public void DodajFilm(IFilm film)
         {

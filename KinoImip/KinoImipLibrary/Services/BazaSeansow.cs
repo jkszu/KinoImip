@@ -18,6 +18,6 @@ namespace KinoImipLibrary.Services
         {
         }
 
-        public List<ISeans> Seanse;
+        public List<ISeans> Seanse = new List<ISeans>();
     }
 }
