@@ -10,7 +10,7 @@ namespace KinoImipLibrary.Interfaces
         IDaneKlienta DaneKlienta { get; set; }
 
         void KupBilet(ISeans seans, IMiejsce miejsce, int posiadanaKwota);
-        IRezerwacja Rezerwuj(ISeans seans, IMiejsce miejsce);
+        IRezerwacja Rezerwuj(ISeans seans, int miejsce);
         void AnulujRezerwacje(IRezerwacja rezerwacja);
     }
 }

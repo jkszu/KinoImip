@@ -14,6 +14,8 @@ namespace KinoImipTests.UnitTests
     [TestFixture]
     public class BazaFilmowTests
     {
+        BazaFilmow baza = BazaFilmow.Instance;
+
         [Test]
         public void ZwrocFilmyTest()
         {
@@ -35,6 +37,12 @@ namespace KinoImipTests.UnitTests
 
             // Assert
             Assert.That(answer, Is.EqualTo(filmyExpected), "ZwrocFilmy() failure");
+        }
+
+        [TearDown]
+        public void Cleanup()
+        {
+            baza.Filmy.Clear();
         }
     }
 }

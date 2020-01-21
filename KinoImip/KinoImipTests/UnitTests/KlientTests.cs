@@ -42,15 +42,17 @@ namespace KinoImipTests.UnitTests
         public void RezerwujTest()
         {
             // Arrange
-            var seans = Substitute.For<ISeans>();
+            var sala = new Sala(30);
+            var film = new Film("Lighthouse", 2019);
+            var seans = new Seans(sala, film);
+
             var bilet = Substitute.For<IBilet>();
-            var daneKlienta = Substitute.For<IDaneKlienta>();
-            var miejsce = Substitute.For<IMiejsce>();
+            var daneKlienta = Substitute.For<IDaneKlienta>(); 
 
             var klient = new Klient(daneKlienta);
 
             // Act
-            var rezerwacja = klient.Rezerwuj(seans, miejsce);
+            var rezerwacja = klient.Rezerwuj(seans, 2);
 
             // Assert
             Assert.That(rezerwacja.Status, Is.EqualTo(true), "Rezerwuj() failure"); // TODO: Enum, reserved
@@ -61,7 +63,19 @@ namespace KinoImipTests.UnitTests
         {
             // Arrange
             var daneKlienta = Substitute.For<IDaneKlienta>();
-            var rezerwacja = Substitute.For<IRezerwacja>();
+
+            //var rezerwacja = Substitute.For<IRezerwacja>();
+            var rezerwacja = new Rezerwacja();
+            rezerwacja.Imie = "John";
+            rezerwacja.Kwota = 20;
+            rezerwacja.Nazwisko = "Johnson";
+            rezerwacja.Pozycja = new Miejsce(4,true);
+
+            var rezerwacje = new List<IRezerwacja>();
+            rezerwacje.Add(rezerwacja);
+
+            daneKlienta.Rezerwacje.Returns(rezerwacje);
+
             var klient = new Klient(daneKlienta);
 
             // Act

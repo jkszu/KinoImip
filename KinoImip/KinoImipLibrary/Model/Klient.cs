@@ -12,17 +12,22 @@ namespace KinoImipLibrary.Model
             DaneKlienta = daneKlienta;
         }
 
-        public List<IBilet> Bilety { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public IDaneKlienta DaneKlienta { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public List<IBilet> Bilety { get; set; }
+        public IDaneKlienta DaneKlienta { get; set; }
 
         public void AnulujRezerwacje(IRezerwacja rezerwacja)
         {
-            throw new NotImplementedException();
+            rezerwacja.Pozycja.czyZarezerwowane = false;
+            rezerwacja.Status = false;
+            this.DaneKlienta.Rezerwacje.Remove(rezerwacja);
         }
 
         public void KupBilet(ISeans seans, IMiejsce miejsce)
         {
-            throw new NotImplementedException();
+            // TODO: Platnosc
+
+
+            
         }
 
         public void KupBilet(ISeans seans, IMiejsce miejsce, int posiadanaKwota)
@@ -30,10 +35,26 @@ namespace KinoImipLibrary.Model
             throw new NotImplementedException();
         }
 
-        public IRezerwacja Rezerwuj(ISeans seans, IMiejsce miejsce)
+        public IRezerwacja Rezerwuj(ISeans seans, int miejsce)
         {
-            // TODO: Logic
-            return new Rezerwacja();
+            var miejscePodczasSeansu = seans.Sala.Miejsca[miejsce];
+            var czyZarezerwowane = miejscePodczasSeansu.czyZarezerwowane;
+
+
+            if (!czyZarezerwowane)
+            {
+                miejscePodczasSeansu.czyZarezerwowane = true;
+            }
+
+            var rezerwacja = new Rezerwacja();
+            rezerwacja.Imie = DaneKlienta.DaneOsobowe.Imie;
+            rezerwacja.Nazwisko = DaneKlienta.DaneOsobowe.Nazwisko;
+            rezerwacja.Seans = seans;
+            rezerwacja.Kwota = 20;
+            rezerwacja.Status = true;
+            rezerwacja.Pozycja = miejscePodczasSeansu;
+
+            return rezerwacja;
         }
     }
 }

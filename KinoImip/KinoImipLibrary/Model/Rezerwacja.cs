@@ -5,12 +5,12 @@ namespace KinoImipLibrary.Model
 {
     public class Rezerwacja : IRezerwacja
     {
-        public IMiejsce Pozycja { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-        public string Imie { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-        public string Nazwisko { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-        public ISeans Seans { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-        public float Kwota { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-        public bool Status { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        public IMiejsce Pozycja { get; set; }
+        public string Imie { get; set; }
+        public string Nazwisko { get; set; }
+        public ISeans Seans { get; set; }
+        public float Kwota { get; set; }
+        public bool Status { get; set; }
 
         public IBilet GenerujBilet()
         {
