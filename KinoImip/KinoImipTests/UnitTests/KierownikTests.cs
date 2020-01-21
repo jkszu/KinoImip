@@ -15,6 +15,7 @@ namespace KinoImipTests.UnitTests
         public void DodajSeansTest()
         {
             // Arrange
+
             // Act
             // Assert
         }
