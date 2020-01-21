@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace KinoImipLibrary.Interfaces
+namespace KinoImipLibrary.Model
 {
-    public interface IBazaFilmow
+    public class Film
     {
     }
 }
