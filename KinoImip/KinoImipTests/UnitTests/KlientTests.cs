@@ -1,5 +1,8 @@
-﻿using NSubstitute;
+using NSubstitute;
 using NUnit.Framework;
+using KinoImipLibrary.Interfaces;
+using KinoImipLibrary.Model;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,8 +26,8 @@ namespace KinoImipTests.UnitTests
             // Arrange
             var seans = Substitute.For<ISeans>();
             var bilet = Substitute.For<IBilet>();
-            var daneKlienta = Substitute.For<IInformacjeOKliencie>();
-            var miejsce = 14;
+            var daneKlienta = Substitute.For<IDaneKlienta>();
+            var miejsce = Substitute.For<IMiejsce>();
 
             var klient = new Klient(daneKlienta);
 
@@ -32,7 +35,7 @@ namespace KinoImipTests.UnitTests
             klient.KupBilet(seans, miejsce);
 
             // Assert
-            Assert.That(klient.bilety.Any(b => b == bilet), "KupBilet() failure");  
+            Assert.That(klient.Bilety.Any(b => b == bilet), "KupBilet() failure");  
         }
 
         [Test]
