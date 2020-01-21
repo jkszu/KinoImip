@@ -65,7 +65,7 @@ namespace KinoImipTests.UnitTests
             var klient = new Klient(daneKlienta);
 
             // Act
-            Klient.AnulujRezerwacje(rezerwacja);
+            klient.AnulujRezerwacje(rezerwacja);
 
             // Assert
             Assert.That(rezerwacja.Status, Is.EqualTo(false));

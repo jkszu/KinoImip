@@ -4,9 +4,9 @@ using System.Text;
 
 namespace KinoImipLibrary.Interfaces
 {
-    public interface ISeans
+    public interface IPotwierdzenie
     {
-        ISala Sala { get; set; }
-        
+        IRezerwacja ZaCo { get; set; }
+        IKlient Kto { get; set; }
     }
 }

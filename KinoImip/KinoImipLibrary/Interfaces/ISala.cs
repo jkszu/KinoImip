@@ -4,9 +4,10 @@ using System.Text;
 
 namespace KinoImipLibrary.Interfaces
 {
-    public interface IMiejsce
+    public interface ISala
     {
         int Numer { get; set; }
-        bool czyZarezerwowane { get; set; }
+        List<IMiejsce> Miejsca { get; set; }
+        bool[] Dostepnosc { get; set; }
     }
 }

@@ -9,6 +9,8 @@ namespace KinoImipLibrary.Interfaces
         List<IBilet> Bilety { get; set; } 
         IDaneKlienta DaneKlienta { get; set; }
 
-        void KupBilet(ISeans seans, IMiejsce miejsce);
+        void KupBilet(ISeans seans, IMiejsce miejsce, int posiadanaKwota);
+        IRezerwacja Rezerwuj(ISeans seans, IMiejsce miejsce);
+        void AnulujRezerwacje(IRezerwacja rezerwacja);
     }
 }

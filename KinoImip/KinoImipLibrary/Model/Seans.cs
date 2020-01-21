@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace KinoImipLibrary.Interfaces
+namespace KinoImipLibrary.Model
 {
-    public interface IBazaSeansow
+    public class Seans
     {
-
     }
 }

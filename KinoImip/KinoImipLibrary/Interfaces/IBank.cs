@@ -4,9 +4,8 @@ using System.Text;
 
 namespace KinoImipLibrary.Interfaces
 {
-    public interface ISeans
+    public interface IBank
     {
-        ISala Sala { get; set; }
-        
+        bool PrzyjmijPlatnosc(IPlatnosc platnosc);
     }
 }

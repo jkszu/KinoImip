@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using KinoImipLibrary.Model;
+using KinoImipLibrary.Services;
+using NUnit.Framework;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,8 +17,12 @@ namespace KinoImipTests.UnitTests
         public void ZwrocSeansTest()
         {
             // Arrange
+            var baza = BazaSeansow.Instance;
+            
             // Act
+            
             // Assert
+
         }
     }
 }

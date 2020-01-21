@@ -15,9 +15,25 @@ namespace KinoImipLibrary.Model
         public List<IBilet> Bilety { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public IDaneKlienta DaneKlienta { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
+        public void AnulujRezerwacje(IRezerwacja rezerwacja)
+        {
+            throw new NotImplementedException();
+        }
+
         public void KupBilet(ISeans seans, IMiejsce miejsce)
         {
             throw new NotImplementedException();
+        }
+
+        public void KupBilet(ISeans seans, IMiejsce miejsce, int posiadanaKwota)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IRezerwacja Rezerwuj(ISeans seans, IMiejsce miejsce)
+        {
+            // TODO: Logic
+            return new Rezerwacja();
         }
     }
 }
