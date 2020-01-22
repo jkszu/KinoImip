@@ -24,30 +24,31 @@ namespace KinoImipTests.UnitTests
         public void KupBiletTest()
         {
             // Arrange
-            var seans = Substitute.For<ISeans>();
-            var bilet = Substitute.For<IBilet>();
-            var daneKlienta = Substitute.For<IDaneKlienta>();
-            var miejsce = Substitute.For<IMiejsce>();
-
+            var sala = new Sala(30);
+            var film = new Film("Lighthouse", 2019);
+            var seans = new Seans(sala, film);
+            var miejsce = 2;
+            var bilet = new Bilet(seans, miejsce);
+            var daneKlienta = new DaneKlienta("John", "Johnson", 23423);
             var klient = new Klient(daneKlienta);
 
             // Act
-            klient.KupBilet(seans, miejsce);
+            klient.KupBilet(seans, miejsce, 20);
 
             // Assert
-            Assert.That(klient.Bilety.Any(b => b == bilet), "KupBilet() failure");  
+            Assert.That(klient.DaneKlienta.Bilety.Any(b => b.Seans == bilet.Seans), "KupBilet() failure");  
         }
 
         [Test]
         public void RezerwujTest()
         {
             // Arrange
+            var miejsce = 2;
             var sala = new Sala(30);
             var film = new Film("Lighthouse", 2019);
             var seans = new Seans(sala, film);
-
-            var bilet = Substitute.For<IBilet>();
-            var daneKlienta = Substitute.For<IDaneKlienta>(); 
+            var bilet = new Bilet(seans, miejsce);
+            var daneKlienta = new DaneKlienta("John", "Johnson", 32423);
 
             var klient = new Klient(daneKlienta);
 
@@ -62,21 +63,15 @@ namespace KinoImipTests.UnitTests
         public void AnulujRezerwacjeTest()
         {
             // Arrange
-            var daneKlienta = Substitute.For<IDaneKlienta>();
+            var klient = new Klient("John", "Johnson", 3221345);
 
-            //var rezerwacja = Substitute.For<IRezerwacja>();
-            var rezerwacja = new Rezerwacja();
-            rezerwacja.Imie = "John";
-            rezerwacja.Kwota = 20;
-            rezerwacja.Nazwisko = "Johnson";
-            rezerwacja.Pozycja = new Miejsce(4,true);
+            var sala = new Sala(30);
+            var film = new Film("Lighthouse", 2019);
+            var seans = new Seans(sala, film);
 
-            var rezerwacje = new List<IRezerwacja>();
-            rezerwacje.Add(rezerwacja);
-
-            daneKlienta.Rezerwacje.Returns(rezerwacje);
-
-            var klient = new Klient(daneKlienta);
+            var rezerwacja = new Rezerwacja(klient.DaneKlienta, seans, 4, 20, true); 
+            var rezerwacje = new List<IRezerwacja>(); 
+            klient.DaneKlienta.Rezerwacje = rezerwacje; 
 
             // Act
             klient.AnulujRezerwacje(rezerwacja);

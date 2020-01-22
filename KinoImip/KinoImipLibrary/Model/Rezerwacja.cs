@@ -12,9 +12,19 @@ namespace KinoImipLibrary.Model
         public float Kwota { get; set; }
         public bool Status { get; set; }
 
+        public Rezerwacja(IDaneKlienta daneKlienta, ISeans seans, int miejsce, float kwota, bool status)
+        {
+            this.Imie = daneKlienta.DaneOsobowe.Imie;
+            this.Nazwisko = daneKlienta.DaneOsobowe.Nazwisko;
+            this.Pozycja = new Miejsce(miejsce, true);
+            this.Seans = seans;
+            this.Kwota = kwota;
+            this.Status = status;
+        }
+
         public IBilet GenerujBilet()
         {
-            throw new System.NotImplementedException();
+            return new Bilet(this.Seans, this.Pozycja.Numer);
         }
     }
 }
