@@ -33,7 +33,7 @@ namespace KinoImipLibrary.Services
             StringBuilder stringBuilder = new StringBuilder();
             foreach(var film in Filmy)
             {
-                stringBuilder.Append($"{film.Nazwa} {film.Rok} {film.Rezyser} {film.Gatunek}");
+                stringBuilder.Append($"{film.Nazwa} {film.Rok}\n");
             }
 
             return stringBuilder.ToString();
