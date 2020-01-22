@@ -12,7 +12,7 @@ namespace KinoImipLibrary.Model
             var bank = new Bank();
             System.Console.WriteLine("Platnosc wyslana");
 
-            return bank.PrzyjmijPlatnosc(this); ;
+            return bank.PrzyjmijPlatnosc(this);
         }
 
         public Platnosc(IRezerwacja zaCo, IKlient kto)

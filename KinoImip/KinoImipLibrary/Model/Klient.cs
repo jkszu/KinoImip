@@ -62,7 +62,7 @@ namespace KinoImipLibrary.Model
                     miejsce,
                     20,
                     true
-                );
+             );
 
             this.DaneKlienta.Rezerwacje.Add(rezerwacja);
             return rezerwacja;
