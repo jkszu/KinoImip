@@ -1,7 +1,7 @@
-﻿using KinoImipLibrary.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using KinoImipLibrary.Interfaces;
 
 namespace KinoImipLibrary.Services
 {
@@ -9,27 +9,25 @@ namespace KinoImipLibrary.Services
     {
         private static readonly Lazy<BazaSeansow>
             lazy =
-            new Lazy<BazaSeansow>
-                (() => new BazaSeansow());
+                new Lazy<BazaSeansow>
+                    (() => new BazaSeansow());
 
-        public static BazaSeansow Instance { get { return lazy.Value; } }
+        public List<ISeans> Seanse = new List<ISeans>();
 
         private BazaSeansow()
         {
         }
 
-        public List<ISeans> Seanse = new List<ISeans>();
+        public static BazaSeansow Instance => lazy.Value;
+
         public void DodajSeans(ISeans seans)
         {
-            if (!Seanse.Contains(seans))
-            {
-                Seanse.Add(seans);
-            }
+            if (!Seanse.Contains(seans)) Seanse.Add(seans);
         }
 
         public string ZwrocSeanse()
         {
-            StringBuilder stringBuilder = new StringBuilder();
+            var stringBuilder = new StringBuilder();
             foreach (var seans in Seanse)
             {
                 var numerSali = seans.Sala.Numer;

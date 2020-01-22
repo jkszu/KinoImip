@@ -9,6 +9,5 @@
         float Kwota { get; set; }
         bool Status { get; set; }
         IBilet GenerujBilet();
-
     }
 }

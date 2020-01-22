@@ -1,6 +1,6 @@
-﻿using KinoImipLibrary.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using KinoImipLibrary.Interfaces;
 
 namespace KinoImipLibrary.Services
 {
@@ -9,12 +9,12 @@ namespace KinoImipLibrary.Services
         private static readonly Lazy<Sale>
             lazy = new Lazy<Sale>(() => new Sale());
 
-        public static Sale Instance { get { return lazy.Value; } }
+        public List<ISala> sale = new List<ISala>();
 
         private Sale()
         {
         }
 
-        public List<ISala> sale = new List<ISala>();
+        public static Sale Instance => lazy.Value;
     }
 }

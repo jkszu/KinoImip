@@ -1,7 +1,7 @@
-﻿using KinoImipLibrary.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using KinoImipLibrary.Interfaces;
 
 namespace KinoImipLibrary.Services
 {
@@ -9,32 +9,26 @@ namespace KinoImipLibrary.Services
     {
         private static readonly Lazy<BazaFilmow>
             lazy =
-            new Lazy<BazaFilmow>
-                (() => new BazaFilmow());
+                new Lazy<BazaFilmow>
+                    (() => new BazaFilmow());
 
-        public static BazaFilmow Instance { get { return lazy.Value; } }
+        public List<IFilm> Filmy = new List<IFilm>();
 
         private BazaFilmow()
         {
         }
 
-        public List<IFilm> Filmy = new List<IFilm>();
+        public static BazaFilmow Instance => lazy.Value;
 
         public void DodajFilm(IFilm film)
         {
-            if (!Filmy.Contains(film))
-            {
-                Filmy.Add(film);
-            }
+            if (!Filmy.Contains(film)) Filmy.Add(film);
         }
 
         public string ZwrocFilmy()
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            foreach (var film in Filmy)
-            {
-                stringBuilder.Append($"{film.Nazwa} {film.Rok}\n");
-            }
+            var stringBuilder = new StringBuilder();
+            foreach (var film in Filmy) stringBuilder.Append($"{film.Nazwa} {film.Rok}\n");
 
             return stringBuilder.ToString();
         }

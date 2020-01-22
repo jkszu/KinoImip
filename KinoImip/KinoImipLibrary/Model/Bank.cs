@@ -1,4 +1,5 @@
-﻿using KinoImipLibrary.Interfaces;
+﻿using System;
+using KinoImipLibrary.Interfaces;
 
 namespace KinoImipLibrary.Model
 {
@@ -6,7 +7,7 @@ namespace KinoImipLibrary.Model
     {
         public bool PrzyjmijPlatnosc(IPlatnosc platnosc)
         {
-            System.Console.WriteLine("Platnosc przyjeta");
+            Console.WriteLine("Platnosc przyjeta");
             return true;
         }
     }

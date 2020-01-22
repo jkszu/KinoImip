@@ -5,8 +5,8 @@ namespace KinoImipLibrary.Model
 {
     public class Kierownik : IKierownik
     {
-        BazaFilmow bazaFilmow = BazaFilmow.Instance;
-        BazaSeansow bazaSeansow = BazaSeansow.Instance;
+        private readonly BazaFilmow bazaFilmow = BazaFilmow.Instance;
+        private readonly BazaSeansow bazaSeansow = BazaSeansow.Instance;
 
         public void DodajFilm(IFilm film)
         {

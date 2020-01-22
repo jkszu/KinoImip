@@ -1,6 +1,6 @@
 ﻿namespace KinoImipLibrary
 {
-    class Constants
+    internal class Constants
     {
         public static readonly float CenaBiletow = 20;
     }
