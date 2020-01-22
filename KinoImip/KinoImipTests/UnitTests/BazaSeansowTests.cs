@@ -30,10 +30,10 @@ namespace KinoImipTests.UnitTests
 
             // Act
             var answer = baza.ZwrocSeanse();
-            var zwrocSeanseExpected = "1: The Lighthouse\n2: 1917\n";
+            var zwrocSeanseExpected = "The Lighthouse\n1917\n";
 
             // Assert
-            Assert.That(answer, Is.EqualTo(zwrocSeanseExpected), "ZwrocFilmy() failure");
+            Assert.That(answer, Is.EqualTo(zwrocSeanseExpected), "ZwrocSeanse() failure");
         }
 
         [TearDown]

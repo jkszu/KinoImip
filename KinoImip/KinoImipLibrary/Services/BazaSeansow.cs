@@ -31,7 +31,7 @@ namespace KinoImipLibrary.Services
             foreach (var seans in Seanse)
             {
                 var numerSali = seans.Sala.Numer;
-                stringBuilder.Append($"{numerSali}: {seans.Film.Nazwa}\n");
+                stringBuilder.Append($"{seans.Film.Nazwa}\n");
             }
 
             return stringBuilder.ToString();
