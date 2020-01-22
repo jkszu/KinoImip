@@ -17,12 +17,12 @@ namespace KinoImipLibrary.Model
             throw new NotImplementedException();
         }
 
-        public void PrzegladajFilmy()
+        public string PrzegladajFilmy()
         {
             throw new NotImplementedException();
         }
 
-        public void PrzegladajSeanse()
+        public string PrzegladajSeanse()
         {
             throw new NotImplementedException();
         }
