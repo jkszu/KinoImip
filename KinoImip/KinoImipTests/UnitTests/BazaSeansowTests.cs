@@ -9,6 +9,12 @@ namespace KinoImipTests.UnitTests
     {
         BazaSeansow baza = BazaSeansow.Instance;
 
+        [SetUp]
+        public void Init()
+        {
+            baza.Seanse.Clear();
+        }
+
         [Test]
         public void ZwrocSeanseTest()
         {

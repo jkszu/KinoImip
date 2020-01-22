@@ -4,6 +4,6 @@
     {
         IRezerwacja ZaCo { get; set; }
         IKlient Kto { get; set; }
-        void WyslijPlatnosc(int kwota);
+        bool WyslijPlatnosc(int kwota);
     }
 }

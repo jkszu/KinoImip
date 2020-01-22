@@ -26,7 +26,9 @@ namespace KinoImipLibrary.Model
 
         public void KupBilet(ISeans seans, int miejsce, float kwota)
         {
-            // TODO: Platnosc
+            var bank = new Bank();
+
+
             IRezerwacja rezerwacja;
 
             if (!DaneKlienta.Rezerwacje.Where(a => (a.Seans == seans) && (a.Pozycja.Numer == miejsce)).Any())
