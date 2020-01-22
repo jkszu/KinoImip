@@ -23,7 +23,7 @@ namespace KinoImipTests.UnitTests
             var outcome = platnosc.WyslijPlatnosc(kwota);
 
             // Assert
-            Assert.That(outcome, Is.True, "WyslijPlatnosc() failure"); 
+            Assert.That(outcome, Is.True, "WyslijPlatnosc() failure");
         }
     }
 }
