@@ -1,14 +1,8 @@
-using NSubstitute;
-using NUnit.Framework;
 using KinoImipLibrary.Interfaces;
 using KinoImipLibrary.Model;
-
-using System;
-using System.Collections;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KinoImipTests.UnitTests
 {
@@ -36,7 +30,7 @@ namespace KinoImipTests.UnitTests
             klient.KupBilet(seans, miejsce, 20);
 
             // Assert
-            Assert.That(klient.DaneKlienta.Bilety.Any(b => b.Seans == bilet.Seans), "KupBilet() failure");  
+            Assert.That(klient.DaneKlienta.Bilety.Any(b => b.Seans == bilet.Seans), "KupBilet() failure");
         }
 
         [Test]
@@ -69,9 +63,9 @@ namespace KinoImipTests.UnitTests
             var film = new Film("Lighthouse", 2019);
             var seans = new Seans(sala, film);
 
-            var rezerwacja = new Rezerwacja(klient.DaneKlienta, seans, 4, 20, true); 
-            var rezerwacje = new List<IRezerwacja>(); 
-            klient.DaneKlienta.Rezerwacje = rezerwacje; 
+            var rezerwacja = new Rezerwacja(klient.DaneKlienta, seans, 4, 20, true);
+            var rezerwacje = new List<IRezerwacja>();
+            klient.DaneKlienta.Rezerwacje = rezerwacje;
 
             // Act
             klient.AnulujRezerwacje(rezerwacja);

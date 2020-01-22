@@ -18,7 +18,7 @@ namespace KinoImipLibrary.Services
         {
         }
 
-        public List<ISeans> Seanse = new List<ISeans>(); 
+        public List<ISeans> Seanse = new List<ISeans>();
         public void DodajSeans(ISeans seans)
         {
             if (!Seanse.Contains(seans))

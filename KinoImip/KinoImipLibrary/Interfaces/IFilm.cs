@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace KinoImipLibrary.Interfaces
+﻿namespace KinoImipLibrary.Interfaces
 {
     public interface IFilm
     {

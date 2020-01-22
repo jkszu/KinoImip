@@ -1,7 +1,4 @@
 ﻿using KinoImipLibrary.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace KinoImipLibrary.Model
 {

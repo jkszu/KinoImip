@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace KinoImipLibrary
+﻿namespace KinoImipLibrary
 {
     public class Kino
     {

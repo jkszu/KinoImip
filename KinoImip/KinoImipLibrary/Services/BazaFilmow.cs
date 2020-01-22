@@ -22,7 +22,7 @@ namespace KinoImipLibrary.Services
 
         public void DodajFilm(IFilm film)
         {
-            if( !Filmy.Contains(film) )
+            if (!Filmy.Contains(film))
             {
                 Filmy.Add(film);
             }
@@ -31,7 +31,7 @@ namespace KinoImipLibrary.Services
         public string ZwrocFilmy()
         {
             StringBuilder stringBuilder = new StringBuilder();
-            foreach(var film in Filmy)
+            foreach (var film in Filmy)
             {
                 stringBuilder.Append($"{film.Nazwa} {film.Rok}\n");
             }

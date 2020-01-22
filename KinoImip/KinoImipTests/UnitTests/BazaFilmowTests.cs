@@ -1,13 +1,8 @@
-﻿using NUnit.Framework;
-using KinoImipLibrary.Services;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using KinoImipLibrary.Interfaces;
 using KinoImipLibrary.Model;
-using KinoImipLibrary.Interfaces;
+using KinoImipLibrary.Services;
+using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace KinoImipTests.UnitTests
 {

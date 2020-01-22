@@ -1,8 +1,5 @@
 ﻿using KinoImipLibrary.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace KinoImipLibrary.Model
 {
@@ -32,7 +29,7 @@ namespace KinoImipLibrary.Model
             // TODO: Platnosc
             IRezerwacja rezerwacja;
 
-            if(!DaneKlienta.Rezerwacje.Where(a => (a.Seans == seans) && (a.Pozycja.Numer == miejsce) ).Any())
+            if (!DaneKlienta.Rezerwacje.Where(a => (a.Seans == seans) && (a.Pozycja.Numer == miejsce)).Any())
             {
                 rezerwacja = this.Rezerwuj(seans, miejsce);
             }
@@ -45,7 +42,7 @@ namespace KinoImipLibrary.Model
             this.DaneKlienta.Bilety.Add(bilet);
             this.DaneKlienta.Rezerwacje.Remove(rezerwacja);
             return;
-        } 
+        }
 
         public IRezerwacja Rezerwuj(ISeans seans, int miejsce)
         {
@@ -63,7 +60,7 @@ namespace KinoImipLibrary.Model
                     miejsce,
                     20,
                     true
-                );    
+                );
 
             this.DaneKlienta.Rezerwacje.Add(rezerwacja);
             return rezerwacja;

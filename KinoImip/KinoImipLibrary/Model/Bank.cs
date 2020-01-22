@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace KinoImipLibrary.Model
+﻿namespace KinoImipLibrary.Model
 {
     public class Bank
     {

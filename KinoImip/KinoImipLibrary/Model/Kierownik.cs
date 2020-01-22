@@ -1,8 +1,5 @@
 ﻿using KinoImipLibrary.Interfaces;
 using KinoImipLibrary.Services;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace KinoImipLibrary.Model
 {
