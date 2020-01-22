@@ -1,4 +1,5 @@
 ﻿using KinoImipLibrary.Interfaces;
+using KinoImipLibrary.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,34 +8,37 @@ namespace KinoImipLibrary.Model
 {
     public class Kierownik : IKierownik
     {
+        BazaFilmow bazaFilmow = BazaFilmow.Instance;
+        BazaSeansow bazaSeansow = BazaSeansow.Instance;
+
         public void DodajFilm(IFilm film)
         {
-            throw new NotImplementedException();
+            bazaFilmow.DodajFilm(film);
         }
 
         public void DodajSeans(ISeans seans)
         {
-            throw new NotImplementedException();
+            bazaSeansow.DodajSeans(seans);
         }
 
         public string PrzegladajFilmy()
         {
-            throw new NotImplementedException();
+            return bazaFilmow.ZwrocFilmy();
         }
 
         public string PrzegladajSeanse()
         {
-            throw new NotImplementedException();
+            return bazaSeansow.ZwrocSeanse();
         }
 
         public void UsunFilm(IFilm film)
         {
-            throw new NotImplementedException();
+            bazaFilmow.Filmy.Remove(film);
         }
 
         public void UsunSeans(ISeans seans)
         {
-            throw new NotImplementedException();
+            bazaSeansow.Seanse.Remove(seans);
         }
     }
 }
