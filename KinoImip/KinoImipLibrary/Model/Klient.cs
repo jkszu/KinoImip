@@ -1,6 +1,7 @@
 ﻿using KinoImipLibrary.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace KinoImipLibrary.Model
@@ -12,28 +13,60 @@ namespace KinoImipLibrary.Model
             DaneKlienta = daneKlienta;
         }
 
-        public List<IBilet> Bilety { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public IDaneKlienta DaneKlienta { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Klient(string imie, string nazwisko, int konto)
+        {
+            DaneKlienta = new DaneKlienta(imie, nazwisko, konto);
+        }
+
+        public IDaneKlienta DaneKlienta { get; set; }
 
         public void AnulujRezerwacje(IRezerwacja rezerwacja)
         {
-            throw new NotImplementedException();
+            rezerwacja.Pozycja.czyZarezerwowane = false;
+            rezerwacja.Status = false;
+            this.DaneKlienta.Rezerwacje.Remove(rezerwacja);
         }
 
-        public void KupBilet(ISeans seans, IMiejsce miejsce)
+        public void KupBilet(ISeans seans, int miejsce, float kwota)
         {
-            throw new NotImplementedException();
-        }
+            // TODO: Platnosc
+            IRezerwacja rezerwacja;
 
-        public void KupBilet(ISeans seans, IMiejsce miejsce, int posiadanaKwota)
-        {
-            throw new NotImplementedException();
-        }
+            if(!DaneKlienta.Rezerwacje.Where(a => (a.Seans == seans) && (a.Pozycja.Numer == miejsce) ).Any())
+            {
+                rezerwacja = this.Rezerwuj(seans, miejsce);
+            }
+            else
+            {
+                rezerwacja = DaneKlienta.Rezerwacje.Where(a => (a.Seans == seans) && (a.Pozycja.Numer == miejsce)).First();
+            }
 
-        public IRezerwacja Rezerwuj(ISeans seans, IMiejsce miejsce)
+            var bilet = rezerwacja.GenerujBilet();
+            this.DaneKlienta.Bilety.Add(bilet);
+            this.DaneKlienta.Rezerwacje.Remove(rezerwacja);
+            return;
+        } 
+
+        public IRezerwacja Rezerwuj(ISeans seans, int miejsce)
         {
-            // TODO: Logic
-            return new Rezerwacja();
+            var miejscePodczasSeansu = seans.Sala.Miejsca[miejsce];
+            var czyZarezerwowane = miejscePodczasSeansu.czyZarezerwowane;
+
+            if (!czyZarezerwowane)
+            {
+                miejscePodczasSeansu.czyZarezerwowane = true;
+            }
+
+            var rezerwacja = new Rezerwacja(
+                    DaneKlienta,
+                    seans,
+                    miejsce,
+                    20,
+                    true
+                );    
+
+            this.DaneKlienta.Rezerwacje.Add(rezerwacja);
+            return rezerwacja;
         }
     }
 }

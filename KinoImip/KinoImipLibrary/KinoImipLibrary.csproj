@@ -4,12 +4,4 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Model\Miejsce.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Model\Miejsce.cs" />
-  </ItemGroup>
-
 </Project>

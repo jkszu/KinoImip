@@ -24,33 +24,36 @@ namespace KinoImipTests.UnitTests
         public void KupBiletTest()
         {
             // Arrange
-            var seans = Substitute.For<ISeans>();
-            var bilet = Substitute.For<IBilet>();
-            var daneKlienta = Substitute.For<IDaneKlienta>();
-            var miejsce = Substitute.For<IMiejsce>();
-
+            var sala = new Sala(30);
+            var film = new Film("Lighthouse", 2019);
+            var seans = new Seans(sala, film);
+            var miejsce = 2;
+            var bilet = new Bilet(seans, miejsce);
+            var daneKlienta = new DaneKlienta("John", "Johnson", 23423);
             var klient = new Klient(daneKlienta);
 
             // Act
-            klient.KupBilet(seans, miejsce);
+            klient.KupBilet(seans, miejsce, 20);
 
             // Assert
-            Assert.That(klient.Bilety.Any(b => b == bilet), "KupBilet() failure");  
+            Assert.That(klient.DaneKlienta.Bilety.Any(b => b.Seans == bilet.Seans), "KupBilet() failure");  
         }
 
         [Test]
         public void RezerwujTest()
         {
             // Arrange
-            var seans = Substitute.For<ISeans>();
-            var bilet = Substitute.For<IBilet>();
-            var daneKlienta = Substitute.For<IDaneKlienta>();
-            var miejsce = Substitute.For<IMiejsce>();
+            var miejsce = 2;
+            var sala = new Sala(30);
+            var film = new Film("Lighthouse", 2019);
+            var seans = new Seans(sala, film);
+            var bilet = new Bilet(seans, miejsce);
+            var daneKlienta = new DaneKlienta("John", "Johnson", 32423);
 
             var klient = new Klient(daneKlienta);
 
             // Act
-            var rezerwacja = klient.Rezerwuj(seans, miejsce);
+            var rezerwacja = klient.Rezerwuj(seans, 2);
 
             // Assert
             Assert.That(rezerwacja.Status, Is.EqualTo(true), "Rezerwuj() failure"); // TODO: Enum, reserved
@@ -60,9 +63,15 @@ namespace KinoImipTests.UnitTests
         public void AnulujRezerwacjeTest()
         {
             // Arrange
-            var daneKlienta = Substitute.For<IDaneKlienta>();
-            var rezerwacja = Substitute.For<IRezerwacja>();
-            var klient = new Klient(daneKlienta);
+            var klient = new Klient("John", "Johnson", 3221345);
+
+            var sala = new Sala(30);
+            var film = new Film("Lighthouse", 2019);
+            var seans = new Seans(sala, film);
+
+            var rezerwacja = new Rezerwacja(klient.DaneKlienta, seans, 4, 20, true); 
+            var rezerwacje = new List<IRezerwacja>(); 
+            klient.DaneKlienta.Rezerwacje = rezerwacje; 
 
             // Act
             klient.AnulujRezerwacje(rezerwacja);
