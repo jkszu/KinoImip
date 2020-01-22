@@ -18,6 +18,25 @@ namespace KinoImipLibrary.Services
         {
         }
 
-        public List<ISeans> Seanse = new List<ISeans>();
+        public List<ISeans> Seanse = new List<ISeans>(); 
+        public void DodajSeans(ISeans seans)
+        {
+            if (!Seanse.Contains(seans))
+            {
+                Seanse.Add(seans);
+            }
+        }
+
+        public string ZwrocSeanse()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (var seans in Seanse)
+            {
+                var numerSali = seans.Sala.Numer;
+                stringBuilder.Append($"{numerSali}: {seans.Film.Nazwa}\n");
+            }
+
+            return stringBuilder.ToString();
+        }
     }
 }

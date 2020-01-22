@@ -15,5 +15,11 @@ namespace KinoImipLibrary.Model
             this.Sala = sala;
             this.Film = film;
         }
+
+        public Seans(int numerSali, IFilm film)
+        {
+            this.Film = film;
+            this.Sala = new Sala(numerSali);
+        }
     }
 }
